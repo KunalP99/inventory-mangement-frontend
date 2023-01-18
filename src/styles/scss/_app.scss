@@ -1,0 +1,17 @@
+body {
+  background-color: white;
+}
+.pages {
+  width: 1300px;
+  margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+@media (max-width: 1512px) {
+  .pages {
+    width: auto;
+  }
+}

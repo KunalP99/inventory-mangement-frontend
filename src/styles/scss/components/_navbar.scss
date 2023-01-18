@@ -1,0 +1,42 @@
+header {
+  background-color: #2f2f2f;
+  .container {
+    box-shadow: $box-shadow;
+    padding: $l-spacing;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+    font-family: $header-font-style;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    @include flex-center-vert;
+    justify-content: center;
+    gap: $s-spacing;
+
+    span {
+      color: $accent-colour;
+      animation: header-step-anim 1s infinite steps(2, jump-none);
+    }
+    img {
+      width: 60px;
+    }
+  }
+}
+
+@keyframes header-step-anim {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@media (min-width: 550px) {
+  header {
+    a {
+      justify-content: flex-start;
+    }
+  }
+}

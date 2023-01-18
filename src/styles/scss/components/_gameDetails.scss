@@ -1,0 +1,94 @@
+.game-details {
+  font-family: $secondary-font-style;
+  border-radius: 5px;
+  width: 200px;
+  h3 {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: $xxs-spacing;
+
+    // Adds an ellipsis if the name goes over the second line
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: clip;
+    padding: 2.5px;
+  }
+
+  .date-text {
+    margin-bottom: $xs-spacing;
+    color: $accent-colour;
+    font-size: 0.8rem;
+  }
+
+  .copies-text {
+    margin-top: $xs-spacing;
+  }
+
+  h3,
+  .date-text,
+  .copies-text {
+    text-align: center;
+  }
+
+  .cover-img {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    width: 200px;
+    height: 300px;
+    border-radius: 16px;
+    margin: 0 auto;
+    transition: 300ms ease-in-out;
+  }
+  .cover-img:hover {
+    transform: scale(1.03, 1.03);
+  }
+
+  .game-details-btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $s-spacing;
+
+    .update-btn {
+      background-color: transparent;
+      border: none;
+
+      img {
+        width: 30px;
+      }
+    }
+
+    .delete-btn {
+      border: none;
+      background-color: transparent;
+
+      img {
+        width: 30px;
+      }
+    }
+  }
+
+  .submit-changes-btn {
+    display: block;
+    border: none;
+    margin: 0 auto;
+    margin-top: $xxs-spacing;
+    padding: $xs-spacing;
+    border-radius: 16px;
+    background-color: $accent-colour;
+    color: white;
+    font-weight: 600;
+    transition: 300ms ease-in-out;
+  }
+  .submit-changes-btn:hover {
+    background-color: $button-hover-colour;
+  }
+
+  .edit-imgurl-input {
+    @include flex-center-horiz;
+    margin-top: $xs-spacing;
+  }
+}

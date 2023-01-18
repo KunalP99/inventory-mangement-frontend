@@ -1,0 +1,113 @@
+.darken-screen {
+  display: none;
+  position: fixed;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.show-dark-screen {
+  display: block;
+}
+
+.sidebar {
+  background-color: white;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 30%;
+  padding: $xl-spacing $xl-spacing;
+  z-index: 1;
+  border-radius: 16px 0px 0px 0px;
+  transform: translateX(100%);
+  transition: 700ms ease-in-out;
+}
+.show-sidebar {
+  transform: translateX(0);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: $xl-spacing;
+
+  .sidebar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    width: 100%;
+
+    img {
+      cursor: pointer;
+      width: 15px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: $md-spacing;
+    }
+  }
+
+  h3 {
+    font-family: $header-font-style;
+    font-size: clamp(1rem, 4vw, 2rem);
+    text-align: center;
+  }
+
+  .form-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .form-item {
+    font-family: $secondary-font-style;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: $xs-spacing;
+    margin-bottom: $md-spacing;
+  }
+
+  label {
+    font-size: clamp(0.8rem, 2vw, 1.6rem);
+  }
+
+  input {
+    width: 100%;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    border-radius: 16px;
+    border: none;
+    background: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 16px;
+    padding: $md-spacing;
+  }
+
+  button {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    padding: $md-spacing $s-spacing;
+    border-radius: 16px;
+    border: none;
+    background-color: $accent-colour;
+    color: white;
+    font-size: clamp(0.8rem, 2vw, 1.4rem);
+    transition: 300ms ease-in-out;
+    box-shadow: $box-shadow;
+  }
+  button:hover {
+    background-color: $button-hover-colour;
+  }
+}
+
+@media (max-width: 850px) {
+  .sidebar {
+    width: 50%;
+  }
+}
