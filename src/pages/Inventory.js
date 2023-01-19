@@ -3,12 +3,14 @@ import { useInventoryContext } from "../hooks/useInventoryContext";
 import GameDetails from "../components/GameDetails";
 import GameForm from "../components/GameForm";
 import Plus from "../images/plus.svg";
-
+import PulseLoader from "react-spinners/PulseLoader";
 const Inventory = () => {
   const { games, dispatch } = useInventoryContext();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchInventory = async () => {
+      setIsLoading(true);
       const response = await fetch(
         "https://games-inventory-api.onrender.com/api/inventory"
       );
@@ -18,11 +20,14 @@ const Inventory = () => {
       if (response.ok) {
         // Setting games array in context to entire array of games in the database
         dispatch({ type: "SET_GAMES", payload: json });
+        setIsLoading(false);
       }
     };
 
     fetchInventory();
   }, []);
+
+  console.log(isLoading);
 
   const toggleForm = () => {
     // Change styling of toggle to translate from right to left
@@ -44,10 +49,16 @@ const Inventory = () => {
       </div>
       <div>
         <GameForm toggleForm={toggleForm} />
-        <div className='inventory'>
-          {games &&
-            games.map((game) => <GameDetails key={game._id} game={game} />)}
-        </div>
+        {isLoading ? (
+          <div className='pulse-loader'>
+            <PulseLoader color='#dd6031' />
+          </div>
+        ) : (
+          <div className='inventory'>
+            {games &&
+              games.map((game) => <GameDetails key={game._id} game={game} />)}
+          </div>
+        )}
       </div>
     </div>
   );

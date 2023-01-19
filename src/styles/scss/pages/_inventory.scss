@@ -76,6 +76,11 @@
       }
     }
   }
+
+  .pulse-loader {
+    @include flex-center;
+    height: 100vh;
+  }
 }
 
 @media (min-width: 600px) {
